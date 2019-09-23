@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chobijaeyu/.oh-my-zsh"
+export ZSH="/Users/yujun/.oh-my-zsh"
+export PATH=/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 POWERLEVEL9K_CONTEXT_TEMPLATE="(ﾉ>ω<)ﾉ"
 
@@ -15,7 +17,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # 左側
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs)
 # 右側
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv time)
 
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -25,7 +27,7 @@ POWERLEVEL9K_USER_ICON="\uF415" # 
 POWERLEVEL9K_ROOT_ICON="#"
 POWERLEVEL9K_SUDO_ICON=$'\uF09C' # 
 
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
@@ -68,8 +70,14 @@ POWERLEVEL9K_TIME_FOREGROUND="cyan"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -106,10 +114,10 @@ POWERLEVEL9K_TIME_FOREGROUND="cyan"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-autosuggestion
+  zsh-autosuggestions
+  autojump
   zsh-syntax-highlighting
 )
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -129,9 +137,6 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -141,6 +146,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export GO111MODULE=auto
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+#export QT_HOMEBREW=true
+#export PATH="/usr/local/opt/qt/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/qt/lib"
+#export CPPFLAGS="-I/usr/local/opt/qt/include"
+
+#DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
+#export DEVELOPER_DIR
