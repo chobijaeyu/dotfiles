@@ -14,17 +14,17 @@ set showcmd              " select模式下显示选中的行数
 set ruler                " 总是显示光标位置
 set laststatus=2         " 总是显示状态栏
 set number               " 开启行号显示
-set cursorline           " 高亮显示当前行
+set cursorline           " 光标横线
+set cursorcolumn         " 光标竖线
 set whichwrap+=<,>,h,l   " 设置光标键跨行
 set ttimeoutlen=0        " 设置<ESC>键响应时间
 set virtualedit=block,onemore   " 允许光标出现在最后一个字符的后面
+set scrolloff=5
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 代码缩进和排版
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent           " 设置自动缩进
-set cindent              " 设置使用C/C++语言的自动缩进方式
-set cinoptions=g0,:0,N-s,(0    " 设置C/C++语言的具体缩进方式
 set smartindent          " 智能的选择对其方式
 filetype indent on       " 自适应不同语言的智能缩进
 set expandtab            " 将制表符扩展为空格
@@ -130,22 +130,25 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'tmhedberg/SimpylFold'
+Plug 'zxqfl/tabnine-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Yggdroot/indentLine'
 call plug#end()            
 
 " load vim default plugin
 runtime macros/matchit.vim
 
 " 编辑vimrc文件
-nnoremap <leader>e :edit $MYVIMRC<cr>
+"nnoremap <leader>e :edit $MYVIMRC<cr>
 
 " 查看vimplus的help文件
-nnoremap <leader>h :edit ~/.vimplus/help.md<cr>
+"nnoremap <leader>h :edit ~/.vimplus/help.md<cr>
 
 " 打开当前光标所在单词的vim帮助文档
-nnoremap <leader>H :execute ":help " . expand("<cword>")<cr>
+"nnoremap <leader>H :execute ":help " . expand("<cword>")<cr>
 
 " 重新加载vimrc文件
-nnoremap <leader>s :source $MYVIMRC<cr>
+"nnoremap <leader>s :source $MYVIMRC<cr>
 
 " 安装、更新、删除插件
 nnoremap <leader><leader>i :PlugInstall<cr>
@@ -179,14 +182,6 @@ let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-
-" cpp-mode
-nnoremap <leader>y :CopyCode<cr>
-nnoremap <leader>p :PasteCode<cr>
-nnoremap <leader>U :GoToFunImpl<cr>
-nnoremap <silent> <leader>a :Switch<cr>
-nnoremap <leader><leader>fp :FormatFunParam<cr>
-nnoremap <leader><leader>if :FormatIf<cr>
 
 " change-colorscheme
 nnoremap <silent> <F9> :PreviousColorScheme<cr>
@@ -345,6 +340,9 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 nnoremap <leader>g :GV<cr>
 nnoremap <leader>G :GV!<cr>
 nnoremap <leader>gg :GV?<cr>
+"
+" Automatically fix PEP8 errors in the current buffer:
+noremap <F6> :PymodeLintAuto<CR>
 
 " 个性化
 if filereadable(expand($HOME . '/.vimrc.local'))
