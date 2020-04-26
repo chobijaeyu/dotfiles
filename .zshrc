@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/yujun/.oh-my-zsh"
+export ZSH="/Users/$(whoami)/.oh-my-zsh"
 export PATH=/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
@@ -152,11 +152,3 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-#export QT_HOMEBREW=true
-#export PATH="/usr/local/opt/qt/bin:$PATH"
-#export LDFLAGS="-L/usr/local/opt/qt/lib"
-#export CPPFLAGS="-I/usr/local/opt/qt/include"
-
-#DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer/"
-#export DEVELOPER_DIR
