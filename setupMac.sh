@@ -41,4 +41,6 @@ git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 
 #get zshrc
-git clone  --depth=1 https://github.com/chobijaeyu/dotfiles.git
+git clone  --depth=1 https://github.com/chobijaeyu/dotfiles.git ~/
+mv .zshrc ~/.zshrc
+rm -rf ~/dotfiles
