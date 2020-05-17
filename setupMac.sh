@@ -25,6 +25,7 @@ brew cask install docker
 brew cask install qutebrowser
 brew cask install google-cloud-sdk
 brew cask install postman
+brew cask install figma
 
 #install Development
 brew install pyenv go autojump node yarn htop angular-cli fzf tree
